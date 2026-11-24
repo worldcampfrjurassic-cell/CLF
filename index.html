@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLOUFFEE — 3D Cafe Bar Model (Three.js)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/index-ClXSu8yp.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/three-B-wPfAeu.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Ds9-1JuJ.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="webgl-canvas"></canvas>
+
+      <!-- CSS2D / HTML Labels Layer -->
+      <div id="labels-layer"></div>
+
+      <!-- Top Left Brand & Spec Panel -->
+      <header class="hud-brand">
+        <div class="brand-header">
+          <div class="brand-badge">
+            <span class="brand-dot"></span>
+            <span class="brand-title">CLOUFFEE</span>
+          </div>
+          <button id="btn-specs" class="icon-pill" title="Spesifikasi & Palet Warna">
+            <span>Info</span>
+          </button>
+        </div>
+        <p class="brand-sub">3D Bar Kafe &bull; 3.000 &times; 2.500 mm</p>
+
+        <div id="spec-drawer" class="spec-drawer collapsed">
+          <div class="spec-section">
+            <div class="spec-heading">Palet Warna</div>
+            <div class="swatch-row">
+              <div class="swatch-item">
+                <span class="swatch" style="background:#ABD4F5;"></span>
+                <div>
+                  <strong>#ABD4F5</strong>
+                  <small>Light Blue</small>
+                </div>
+              </div>
+              <div class="swatch-item">
+                <span class="swatch" style="background:#FFFFFF;border:1px solid #d5e2ee;"></span>
+                <div>
+                  <strong>#FFFFFF</strong>
+                  <small>Solid Surface</small>
+                </div>
+              </div>
+              <div class="swatch-item">
+                <span class="swatch" style="background:#FFE6C2;"></span>
+                <div>
+                  <strong>3500K</strong>
+                  <small>Warm LED</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-section">
+            <div class="spec-heading">Spesifikasi Utama</div>
+            <ul class="spec-list">
+              <li><span>Ukuran Area</span><strong>3.000 &times; 2.500 mm</strong></li>
+              <li><span>Counter Pelanggan</span><strong>1.100 mm</strong></li>
+              <li><span>Meja Kerja Barista</span><strong>950 mm</strong></li>
+              <li><span>Sekat Depan</span><strong>150 mm</strong></li>
+              <li><span>Mesin Espresso</span><strong>Ferratti Ferro FCM3601</strong></li>
+              <li><span>Grinder</span><strong>One Two Cups 600N</strong></li>
+            </ul>
+          </div>
+
+          <div class="spec-section">
+            <div class="spec-heading">Zona &amp; Peralatan (Klik untuk fokus)</div>
+            <div id="zone-legend" class="zone-legend"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Top Right Controls -->
+      <aside class="hud-controls">
+        <button id="btn-labels" class="ctrl-btn active" title="Tampilkan / sembunyikan pin zona 1–8">
+          <span class="ctrl-dot"></span>
+          <span>Zona 1–8</span>
+        </button>
+        <button id="btn-dims" class="ctrl-btn active" title="Tampilkan / sembunyikan ukuran dimensi">
+          <span class="ctrl-dot"></span>
+          <span>Dimensi</span>
+        </button>
+        <button id="btn-led" class="ctrl-btn active" title="Nyalakan / matikan aksen LED 3500K">
+          <span class="ctrl-dot led"></span>
+          <span>LED 3500K</span>
+        </button>
+        <button id="btn-mood" class="ctrl-btn" title="Ganti suasana pencahayaan siang / malam">
+          <span id="mood-label">Siang Terang</span>
+        </button>
+        <button id="btn-rotate" class="ctrl-btn" title="Putar otomatis kamera">
+          <span>Auto-Rotate</span>
+        </button>
+      </aside>
+
+      <!-- Active Item Info Toast -->
+      <div id="focus-card" class="focus-card hidden">
+        <div class="focus-badge" id="focus-num">1</div>
+        <div class="focus-body">
+          <h3 id="focus-title">Sink (Single)</h3>
+          <p id="focus-desc">Bak cuci stainless steel single bowl dengan keran leher angsa krom.</p>
+        </div>
+        <button id="focus-close" class="focus-close" aria-label="Tutup">&times;</button>
+      </div>
+
+      <!-- Bottom Camera Presets -->
+      <nav class="hud-cameras" aria-label="Sudut Pandang Kamera">
+        <button class="cam-btn active" data-view="hero">Perspektif</button>
+        <button class="cam-btn" data-view="front">Tampak Depan</button>
+        <button class="cam-btn" data-view="top">Layout Plan</button>
+        <button class="cam-btn" data-view="left">Samping Kiri</button>
+        <button class="cam-btn" data-view="back">Tampak Belakang</button>
+        <button class="cam-btn" data-view="barista">Barista POV</button>
+      </nav>
+
+      <!-- Hint Pill -->
+      <div class="hud-hint">Drag untuk putar &bull; Scroll untuk zoom &bull; Klik kanan untuk geser</div>
+    </div>
+
+  </body>
+</html>
